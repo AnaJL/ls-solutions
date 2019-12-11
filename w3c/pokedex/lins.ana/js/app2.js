@@ -3,7 +3,7 @@ let result = ''
 for( const pokemon of poke){
     res= `<div class="pokemon" data-name="${pokemon.name}" data-type="${pokemon.type[0]},${pokemon.type[1]}" tabindex="${pokemon.id}">
      <figure class="pokemon-figure">
-       <img src="img/${pokemon.name}.png" alt="${pokemon.name}">
+       <img src="img/${pokemon.name[0].toLowerCase() + pokemon.name.substring(1)}.png" alt="${pokemon.name}">
      </figure>
      <section class="pokemon-description">
        <span class="pokemon-id">#00${pokemon.id}</span>
@@ -57,9 +57,9 @@ result += res
 }
 pokedexa.innerHTML = result
 text = document.querySelector('input[id = "filter-name"]')
-text.addEventListener('keyup', keyup, false)
+text.addEventListener('keyup', keyup, false)  //key == shift
 function keyup(key){
-    if (key.keyCode == "16"){
+    if (key.keyCode == "16"){                 //key == shift
       if (text.value == ''){
         rest = result
       }
@@ -69,7 +69,7 @@ function keyup(key){
         if (text.value == pokemon.name){
             rest =  `<div class="pokemon" data-name="${pokemon.name}" data-type="${pokemon.type[0]},${pokemon.type[1]}" tabindex="${pokemon.id}">
             <figure class="pokemon-figure">
-              <img src="img/${pokemon.name}.png" alt="${pokemon.name}">
+              <img src="img/${pokemon.name[0].toLowerCase() + pokemon.name.substring(1)}.png" alt="${pokemon.name}">
             </figure>
             <section class="pokemon-description">
               <span class="pokemon-id">#00${pokemon.id}</span>
@@ -155,7 +155,7 @@ tipo.addEventListener('change', function() {
       if (pokemon.type[i] == tipo.value){
         res= `<div class="pokemon" data-name="${pokemon.name}" data-type="${pokemon.type[0]},${pokemon.type[1]}" tabindex="${pokemon.id}">
      <figure class="pokemon-figure">
-       <img src="img/${pokemon.name}.png" alt="${pokemon.name}">
+       <img src="img/${pokemon.name[0].toLowerCase() + pokemon.name.substring(1)}.png" alt="${pokemon.name}">
      </figure>
      <section class="pokemon-description">
        <span class="pokemon-id">#00${pokemon.id}</span>
